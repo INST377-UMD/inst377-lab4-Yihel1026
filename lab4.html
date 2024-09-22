@@ -1,0 +1,94 @@
+<html></html>
+    <head>
+        <title>INST377 Lab4</title>
+        <link rel="stylesheet" href="lab4.css">
+    </head>
+
+    <body>
+        <header>
+            <h1 id="header">INST377-Lab4</h1>
+        </header>
+
+        <div class="main">
+
+            <div class="area">
+                <div class="content-box">
+                    <form name="contactForm">
+                        <label>Enter Name</label>
+                        <input type="text" id="name" required>
+                        <button onclick="alertMe()">Alert Me!</button>
+                        <script type="text/javascript">
+                            function alertMe() {
+                                var name = document.getElementById('name').value;
+                                alert('Hello ' + name);
+                            }
+                        </script>
+                    </form>
+                </div>
+            </div>
+
+            <br>
+
+            <div class="area">
+                <div class="content-box">
+                    <button onclick="changeColor()">Change Color</button>
+                    <script>
+                        var changedColor = true;
+                        function changeColor(){
+                            if(changedColor) 
+                            {document.body.style.backgroundColor = 'green';
+                            
+                            }
+                            else
+                            {document.body.style.backgroundColor = 'blue';
+                            }
+                        }
+                    </script>
+                </div>
+            </div>
+
+            <br>
+
+            <div class="area">
+                <div class="content-box">
+                    <form name="textTester" onsubmit="return(formValidation())">
+                        <label>Text Tester</label>
+                        <input type="text" id="inputText">
+                        <input type="submit" value="Validate Text">
+                    </form>
+            
+                    <script type="text/javascript">
+                        function formValidation() {
+                            const validationRegex = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+                            if (validationRegex.test(document.textTester.inputText.value)) {
+                                alert('How about.... nah :(')
+                                return false
+                            }
+            
+                            return true;
+                        }
+                    </script>
+                </div>
+            </div>
+
+            <br>
+
+            <div class="area">
+                <div class="content-box">
+                    <button onclick="addText()">Add Text</button>
+
+                    <script>
+                        function addText() {
+                            var heading = document.getElementById('header');
+                            if (!heading.innerHTML.includes('Add Text')) {
+                                heading.innerHTML += ' Adding Text';
+                                return false;
+                            }
+                           return true
+                        }
+                    </script>
+                </div>
+            </div>
+        </div>
+
+    </body>
